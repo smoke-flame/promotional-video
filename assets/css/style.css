@@ -1,0 +1,371 @@
+@-webkit-keyframes headerSlide {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+@keyframes headerSlide {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  100% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+}
+
+@-webkit-keyframes labelSlide {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    display: none;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    display: block;
+  }
+}
+
+@keyframes labelSlide {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    display: none;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    display: block;
+  }
+}
+
+@-webkit-keyframes titleSkew {
+  from {
+    width: 20px;
+    height: 3px;
+  }
+  to {
+    width: 100%;
+    height: 45%;
+  }
+}
+
+@keyframes titleSkew {
+  from {
+    width: 20px;
+    height: 3px;
+  }
+  to {
+    width: 100%;
+    height: 45%;
+  }
+}
+
+@-webkit-keyframes showButtons {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(6);
+            transform: scale(6);
+  }
+}
+
+@keyframes showButtons {
+  from {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(6);
+            transform: scale(6);
+  }
+}
+
+@-webkit-keyframes teashow {
+  from {
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@keyframes teashow {
+  from {
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+*,
+*:after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 100vw;
+  max-width: 768px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/peach-BG.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.header {
+  width: 100%;
+  background-image: url(../img/pepermint-tagline-back.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  height: 39.5%;
+  bottom: 100%;
+  -webkit-animation: headerSlide 0.4s linear forwards;
+          animation: headerSlide 0.4s linear forwards;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.header__title {
+  position: absolute;
+  bottom: 10%;
+  left: 47%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background-image: url(../img/pepermint-tagline.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  -webkit-animation: titleSkew 0.3s linear forwards;
+          animation: titleSkew 0.3s linear forwards;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.header__label {
+  position: absolute;
+  width: 18%;
+  height: 16%;
+  left: 10%;
+  background-image: url(../img/peppermint-newBanner.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-animation: labelSlide 0.2s linear forwards;
+          animation: labelSlide 0.2s linear forwards;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+}
+
+.body {
+  position: absolute;
+  width: 100%;
+  height: 60.5%;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.body__item {
+  width: 100%;
+  height: 100%;
+}
+
+.body__item__tea {
+  width: 65%;
+  height: 60%;
+  position: absolute;
+  top: 14%;
+  left: 52%;
+  -webkit-transform: translateX(200px);
+          transform: translateX(200px);
+  background-image: url(../img/peppermint-product.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  -webkit-animation: teashow 0.3s linear forwards;
+          animation: teashow 0.3s linear forwards;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.body__item__arrow--left {
+  width: 2%;
+  height: 2%;
+  bottom: 220px;
+  left: 30px;
+  background-image: url(../img/arrow-left.png);
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation: showButtons 0.2s linear forwards;
+          animation: showButtons 0.2s linear forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.body__item__arrow--right {
+  width: 2%;
+  height: 2%;
+  bottom: 220px;
+  right: 30px;
+  background-image: url(../img/arrow-right.png);
+  background-size: contain;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation: showButtons 0.2s linear forwards;
+          animation: showButtons 0.2s linear forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.body__item__strawberry-1 {
+  width: 2.7%;
+  height: 2.7%;
+  top: 85px;
+  left: -3px;
+  background-image: url(../img/pepermint-elements/strawberry-1.png);
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: scale(15);
+          transform: scale(15);
+}
+
+.body__item__strawberry-2 {
+  width: 2.7%;
+  height: 2.7%;
+  top: 105px;
+  left: 79%;
+  background-image: url(../img/pepermint-elements/strawberry-2.png);
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: scale(15);
+          transform: scale(15);
+}
+
+.body__item__pepermint-1 {
+  width: 3%;
+  height: 3%;
+  top: 244px;
+  left: 26%;
+  background-image: url(../img/pepermint-elements/pepermint-1.png);
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: scale(18);
+          transform: scale(18);
+}
+
+.body__item__pepermint-2 {
+  width: 3%;
+  height: 3%;
+  bottom: 10px;
+  right: 25px;
+  background-image: url(../img/pepermint-elements/pepermint-2.png);
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: scale(13);
+          transform: scale(13);
+}
+
+.body__item__seed-1 {
+  width: 3%;
+  height: 3%;
+  bottom: 95px;
+  right: 45px;
+  background-image: url(../img/pepermint-elements/seed-1.png);
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: scale(3);
+          transform: scale(3);
+}
+
+.body__item__seed-2 {
+  width: 3%;
+  height: 3%;
+  bottom: 217px;
+  right: -10px;
+  background-image: url(../img/pepermint-elements/seed-2.png);
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: scale(3);
+          transform: scale(3);
+}
+/*# sourceMappingURL=style.css.map */
