@@ -11,9 +11,8 @@
 body {
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
 }
-
-
 
 .wrapper {
     width: 100vw;
@@ -30,49 +29,109 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    overflow: hidden;
 }
 
 .header {
     width: 100%;
-    background-image: url(../img/pepermint-tagline-back.png);
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
     height: 39.5%;
-    bottom: 100%;
-    animation: headerSlide 0.4s linear forwards;
-    animation-delay: 0.2s;
 
-
-    &__title {
-        position: absolute;
-        bottom: 10%;
-        left: 47%;
-        transform: translateX(-50%);
-        width: 20px;
-        height: 3px;
-        background-image: url(../img/pepermint-tagline.png);
+    &__item {
+        overflow: hidden;
+        background-position: left top;
         background-repeat: no-repeat;
         background-size: contain;
-        background-position: center;
-        animation: titleSkew 0.3s linear forwards;
-        animation-delay: 0.5s;
+        position: absolute;
+        animation: headerSlide 0.5s linear forwards;
+        animation-delay: 0.4s;
+        width: 100%;
+        height: 43.5%;
+        bottom: 100%;
+        transition: opacity 0.6s linear;
+        opacity: 0;
+
+        &.active {
+            opacity: 1;
+        }
+
+        &.strawberry {
+            opacity: 1;
+            background-image: url(../img/pepermint-tagline-back.png);
+            width: 98%;
+        }
+
+        &.newstrawberry {
+            background-image: url(../img/upper-tagline-1.png);
+            width: 98%;
+        }
+
+        &.raspberry {
+            background-image: url(../img/raspberry-tagline.png);
+            width: 96%;
+
+        }
+
+        &.peach {
+            background-image: url(../img/peach-tagline.png);
+            width: 96%;
+        }
+
+
+        &__title {
+            position: absolute;
+            bottom: 22%;
+            left: 47%;
+            transform: translateX(-50%);
+            width: 5.35%;
+            height: 1.15%;
+            max-width: 101%;
+            background-image: url(../img/pepermint-tagline.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            animation: titleSkew 0.4s linear forwards;
+            animation-delay: 0.9s;
+
+        }
+
+        &__label {
+            position: absolute;
+            width: 18%;
+            height: 16%;
+            left: 10%;
+            top: 0;
+
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+
+
+            &.raspberry {
+                background-image: url(../img/raspberry-new.png);
+            }
+
+            &.strawberry,
+            &.newstrawberry {
+                background-image: url(../img/peppermint-newBanner.png);
+            }
+
+            &.strawberry {
+                transform: translateY(-100%);
+                animation: labelSlide 0.2s linear forwards;
+                animation-delay: 1.3s;
+            }
+
+            &.peach {
+
+                background-image: url(../img/peach-newBanner.png);
+
+            }
+        }
     }
 
-    &__label {
-        position: absolute;
-        width: 18%;
-        height: 16%;
-        left: 10%;
-        background-image: url(../img/peppermint-newBanner.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        transform: translateY(-100%);
-        animation: labelSlide 0.2s linear forwards;
-        animation-delay: 0.8s;
-    }
+
+
 }
 
 .body {
@@ -80,48 +139,80 @@ body {
     width: 100%;
     height: 60.5%;
     bottom: 0;
-    overflow: hidden;
+
 
     &__item {
         width: 100%;
         height: 100%;
 
-        &__tea {
-            width: 65%;
-            height: 60%;
+
+        &__teas {
             position: absolute;
-            top: 14%;
-            left: 52%;
-            transform: translateX(200px);
-            background-image: url(../img/peppermint-product.png);
+            width: 100%;
+            height: 60%;
+            top: 12%;
+            left: 0;
+            transform: translateX(100%);
+            animation: teashow 0.4s linear forwards;
+            animation-delay: 0.4s;
+            overflow: hidden;
+
+            &__carusel {
+                height: 100%;
+                padding: 2% 0;
+                margin: 0 auto;
+                display: flex;
+                transition: transform 0.5s linear;
+            }
+        }
+
+        &__tea {
+            min-width: 70%;
+            width: 100%;
+            // margin: 0 15%;
+            margin-right: 30%;
+            min-height: 100%;
             background-repeat: no-repeat;
             background-size: contain;
             background-position: center;
-            animation: teashow 0.3s linear forwards;
-            animation-delay: 0.2s;
+            // transition: transform 0.2s linear;
+            transform: translateX(23%);
 
+
+            &.strawberry {
+                background-image: url(../img/peppermint-product.png);
+
+            }
+
+            &.raspberry {
+                background-image: url(../img/raspberry-product.png);
+            }
+
+            &.peach {
+                background-image: url(../img/peach-product.png);
+            }
         }
 
         &__arrow--left {
             width: 2%;
             height: 2%;
-            bottom: 220px;
-            left: 30px;
+            bottom: 56%;
+            left: 9%;
             background-image: url(../img/arrow-left.png);
             position: absolute;
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
             transform: scale(0);
-            animation: showButtons 0.2s linear forwards;
-            animation-delay: 1s;
+            animation: showItem .5s linear forwards;
+            animation-delay: 1.5s;
         }
 
         &__arrow--right {
             width: 2%;
             height: 2%;
-            bottom: 220px;
-            right: 30px;
+            bottom: 56%;
+            right: 9%;
             background-image: url(../img/arrow-right.png);
             background-size: contain;
             position: absolute;
@@ -129,71 +220,252 @@ body {
             background-repeat: no-repeat;
             background-size: contain;
             transform: scale(0);
-            animation: showButtons 0.2s linear forwards;
-            animation-delay: 1s;
+            animation: showItem .5s linear forwards;
+            animation-delay: 1.5s;
 
         }
 
         &__strawberry-1 {
+            visibility: hidden;
             width: 2.7%;
             height: 2.7%;
-            top: 85px;
-            left: -3px;
+            top: 18%;
+            left: -1%;
             background-image: url(../img/pepermint-elements/strawberry-1.png);
-            @include emergence;
-            transform: scale(15);
 
-
+            &.in {
+                @include emergence;
+                transform: scale(15);
+            }
         }
 
         &__strawberry-2 {
+            visibility: hidden;
             width: 2.7%;
             height: 2.7%;
-            top: 105px;
+            top: 23%;
             left: 79%;
             background-image: url(../img/pepermint-elements/strawberry-2.png);
-            @include emergence;
-            transform: scale(15);
+
+            &.in {
+                @include emergence;
+                transform: scale(15);
+            }
         }
 
         &__pepermint-1 {
+            visibility: hidden;
             width: 3%;
             height: 3%;
-            top: 244px;
+            top: 58%;
             left: 26%;
             background-image: url(../img/pepermint-elements/pepermint-1.png);
-            @include emergence;
-            transform: scale(18);
+
+            &.in {
+                @include emergence;
+                transform: scale(18);
+            }
         }
 
         &__pepermint-2 {
+            visibility: hidden;
             width: 3%;
             height: 3%;
             bottom: 10px;
             right: 25px;
             background-image: url(../img/pepermint-elements/pepermint-2.png);
-            @include emergence;
-            transform: scale(13);
+
+            &.in {
+                @include emergence;
+                transform: scale(13);
+            }
         }
 
         &__seed-1 {
+            visibility: hidden;
             width: 3%;
             height: 3%;
-            bottom: 95px;
-            right: 45px;
+            bottom: 24%;
+            right: 12%;
             background-image: url(../img/pepermint-elements/seed-1.png);
-            @include emergence;
-            transform: scale(3);
+
+            &.in {
+                @include emergence;
+                transform: scale(3);
+            }
         }
 
         &__seed-2 {
+            visibility: hidden;
             width: 3%;
             height: 3%;
-            bottom: 217px;
+            bottom: 56%;
             right: -10px;
             background-image: url(../img/pepermint-elements/seed-2.png);
-            @include emergence;
-            transform: scale(3);
+
+            &.in {
+                @include emergence;
+                transform: scale(3);
+            }
+        }
+
+        &__button {
+            width: 32.5%;
+            height: 10%;
+            background-image: url(../img/CTA.png);
+            background-size: contain;
+            position: absolute;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            bottom: 7%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            animation: showElement .5s linear forwards;
+            animation-delay: 1.5s;
+        }
+
+        &__lemon {
+            width: 3%;
+            height: 3%;
+            bottom: 28%;
+            left: 20%;
+            background-image: url(../img/raspberry-elements/Lemon.png);
+            visibility: hidden;
+
+            &.in {
+                @include emergence;
+
+                transform: scale(18);
+            }
+        }
+
+        &__raspberry-1 {
+            width: 3%;
+            height: 3%;
+            top: 12%;
+            left: 5%;
+            background-image: url(../img/raspberry-elements/Raspberry1.png);
+            visibility: hidden;
+
+            &.in {
+                @include emergence;
+
+                transform: scale(13);
+            }
+
+        }
+
+        &__raspberry-2 {
+            width: 3%;
+            height: 3%;
+            top: 20%;
+            right: 33%;
+            background-image: url(../img/raspberry-elements/Raspberry2.png);
+            visibility: hidden;
+
+            &.in {
+                @include emergence;
+                transform: scale(13);
+            }
+        }
+
+        &__raspberry-3 {
+            width: 3%;
+            height: 3%;
+            top: 35%;
+            right: 21%;
+            background-image: url(../img/raspberry-elements/Raspberry3.png);
+            visibility: hidden;
+
+            &.in {
+                @include emergence;
+                transform: scale(13);
+            }
+        }
+
+        &__petal-2 {
+            width: 3%;
+            height: 3%;
+            top: 18%;
+            left: 22%;
+            background-image: url(../img/raspberry-elements/petal-2.png);
+            visibility: hidden;
+
+            &.in {
+                @include emergence;
+                transform: scale(8);
+            }
+        }
+
+        &__petal-3 {
+            width: 3%;
+            height: 3%;
+            top: 39%;
+            left: -2%;
+            background-image: url(../img/raspberry-elements/petal-3.png);
+            visibility: hidden;
+
+            &.in {
+                @include emergence;
+                transform: scale(8);
+            }
+        }
+
+        &__petal-4 {
+            width: 3%;
+            height: 3%;
+            top: 50%;
+            right: 19%;
+            background-image: url(../img/raspberry-elements/petal-4.png);
+            visibility: hidden;
+
+            &.in {
+                @include emergence;
+                transform: scale(8);
+            }
+        }
+
+        &__petal-5 {
+            width: 3%;
+            height: 3%;
+            top: 10%;
+            right: 3%;
+            background-image: url(../img/raspberry-elements/petal-5.png);
+            visibility: hidden;
+
+            &.in {
+                @include emergence;
+                transform: scale(10);
+            }
+        }
+
+        &__peach {
+            width: 3%;
+            height: 3%;
+            top: 17%;
+            right: 25%;
+            background-image: url(../img/peach-elements/peach.png);
+
+            &.in {
+                @include emergence;
+                transform: scale(14);
+            }
+
+        }
+
+        &__orange {
+            width: 3%;
+            height: 3%;
+            bottom: 34%;
+            left: 19%;
+            background-image: url(../img/peach-elements/orange.png);
+
+            &.in {
+                @include emergence;
+                transform: scale(16);
+            }
         }
     }
 

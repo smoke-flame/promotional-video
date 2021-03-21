@@ -48,27 +48,27 @@
 
 @-webkit-keyframes titleSkew {
   from {
-    width: 20px;
-    height: 3px;
+    width: 5.35%;
+    height: 1.15%;
   }
   to {
-    width: 100%;
-    height: 45%;
+    width: 101%;
+    height: 38%;
   }
 }
 
 @keyframes titleSkew {
   from {
-    width: 20px;
-    height: 3px;
+    width: 5.35%;
+    height: 1.15%;
   }
   to {
-    width: 100%;
-    height: 45%;
+    width: 101%;
+    height: 38%;
   }
 }
 
-@-webkit-keyframes showButtons {
+@-webkit-keyframes showItem {
   from {
     -webkit-transform: scale(0);
             transform: scale(0);
@@ -79,7 +79,7 @@
   }
 }
 
-@keyframes showButtons {
+@keyframes showItem {
   from {
     -webkit-transform: scale(0);
             transform: scale(0);
@@ -92,23 +92,66 @@
 
 @-webkit-keyframes teashow {
   from {
-    -webkit-transform: translateX(200px);
-            transform: translateX(200px);
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
   }
   to {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 
 @keyframes teashow {
   from {
-    -webkit-transform: translateX(200px);
-            transform: translateX(200px);
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
   }
   to {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
+}
+
+@-webkit-keyframes showElement {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showElement {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hideElement {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hideElement {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.out {
+  -webkit-animation: hideElement 0.3s linear forwards;
+          animation: hideElement 0.3s linear forwards;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
 }
 /*# sourceMappingURL=animations.css.map */

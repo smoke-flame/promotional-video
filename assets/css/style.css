@@ -48,27 +48,27 @@
 
 @-webkit-keyframes titleSkew {
   from {
-    width: 20px;
-    height: 3px;
+    width: 5.35%;
+    height: 1.15%;
   }
   to {
-    width: 100%;
-    height: 45%;
+    width: 101%;
+    height: 38%;
   }
 }
 
 @keyframes titleSkew {
   from {
-    width: 20px;
-    height: 3px;
+    width: 5.35%;
+    height: 1.15%;
   }
   to {
-    width: 100%;
-    height: 45%;
+    width: 101%;
+    height: 38%;
   }
 }
 
-@-webkit-keyframes showButtons {
+@-webkit-keyframes showItem {
   from {
     -webkit-transform: scale(0);
             transform: scale(0);
@@ -79,7 +79,7 @@
   }
 }
 
-@keyframes showButtons {
+@keyframes showItem {
   from {
     -webkit-transform: scale(0);
             transform: scale(0);
@@ -92,24 +92,67 @@
 
 @-webkit-keyframes teashow {
   from {
-    -webkit-transform: translateX(200px);
-            transform: translateX(200px);
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
   }
   to {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
 }
 
 @keyframes teashow {
   from {
-    -webkit-transform: translateX(200px);
-            transform: translateX(200px);
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
   }
   to {
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
+}
+
+@-webkit-keyframes showElement {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes showElement {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes hideElement {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hideElement {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.out {
+  -webkit-animation: hideElement 0.3s linear forwards;
+          animation: hideElement 0.3s linear forwards;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
 }
 
 *,
@@ -124,6 +167,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .wrapper {
@@ -141,56 +185,106 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  overflow: hidden;
 }
 
 .header {
   width: 100%;
-  background-image: url(../img/pepermint-tagline-back.png);
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: absolute;
   height: 39.5%;
-  bottom: 100%;
-  -webkit-animation: headerSlide 0.4s linear forwards;
-          animation: headerSlide 0.4s linear forwards;
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
 }
 
-.header__title {
+.header__item {
+  overflow: hidden;
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: contain;
   position: absolute;
-  bottom: 10%;
+  -webkit-animation: headerSlide 0.5s linear forwards;
+          animation: headerSlide 0.5s linear forwards;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+  width: 100%;
+  height: 43.5%;
+  bottom: 100%;
+  -webkit-transition: opacity 0.6s linear;
+  transition: opacity 0.6s linear;
+  opacity: 0;
+}
+
+.header__item.active {
+  opacity: 1;
+}
+
+.header__item.strawberry {
+  opacity: 1;
+  background-image: url(../img/pepermint-tagline-back.png);
+  width: 98%;
+}
+
+.header__item.newstrawberry {
+  background-image: url(../img/upper-tagline-1.png);
+  width: 98%;
+}
+
+.header__item.raspberry {
+  background-image: url(../img/raspberry-tagline.png);
+  width: 96%;
+}
+
+.header__item.peach {
+  background-image: url(../img/peach-tagline.png);
+  width: 96%;
+}
+
+.header__item__title {
+  position: absolute;
+  bottom: 22%;
   left: 47%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  width: 20px;
-  height: 3px;
+  width: 5.35%;
+  height: 1.15%;
+  max-width: 101%;
   background-image: url(../img/pepermint-tagline.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  -webkit-animation: titleSkew 0.3s linear forwards;
-          animation: titleSkew 0.3s linear forwards;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
+  -webkit-animation: titleSkew 0.4s linear forwards;
+          animation: titleSkew 0.4s linear forwards;
+  -webkit-animation-delay: 0.9s;
+          animation-delay: 0.9s;
 }
 
-.header__label {
+.header__item__label {
   position: absolute;
   width: 18%;
   height: 16%;
   left: 10%;
-  background-image: url(../img/peppermint-newBanner.png);
+  top: 0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.header__item__label.raspberry {
+  background-image: url(../img/raspberry-new.png);
+}
+
+.header__item__label.strawberry, .header__item__label.newstrawberry {
+  background-image: url(../img/peppermint-newBanner.png);
+}
+
+.header__item__label.strawberry {
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
   -webkit-animation: labelSlide 0.2s linear forwards;
           animation: labelSlide 0.2s linear forwards;
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
+  -webkit-animation-delay: 1.3s;
+          animation-delay: 1.3s;
+}
+
+.header__item__label.peach {
+  background-image: url(../img/peach-newBanner.png);
 }
 
 .body {
@@ -198,7 +292,6 @@ body {
   width: 100%;
   height: 60.5%;
   bottom: 0;
-  overflow: hidden;
 }
 
 .body__item {
@@ -206,29 +299,63 @@ body {
   height: 100%;
 }
 
-.body__item__tea {
-  width: 65%;
-  height: 60%;
+.body__item__teas {
   position: absolute;
-  top: 14%;
-  left: 52%;
-  -webkit-transform: translateX(200px);
-          transform: translateX(200px);
-  background-image: url(../img/peppermint-product.png);
+  width: 100%;
+  height: 60%;
+  top: 12%;
+  left: 0;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-animation: teashow 0.4s linear forwards;
+          animation: teashow 0.4s linear forwards;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+  overflow: hidden;
+}
+
+.body__item__teas__carusel {
+  height: 100%;
+  padding: 2% 0;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: -webkit-transform 0.5s linear;
+  transition: -webkit-transform 0.5s linear;
+  transition: transform 0.5s linear;
+  transition: transform 0.5s linear, -webkit-transform 0.5s linear;
+}
+
+.body__item__tea {
+  min-width: 70%;
+  width: 100%;
+  margin-right: 30%;
+  min-height: 100%;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  -webkit-animation: teashow 0.3s linear forwards;
-          animation: teashow 0.3s linear forwards;
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+  -webkit-transform: translateX(23%);
+          transform: translateX(23%);
+}
+
+.body__item__tea.strawberry {
+  background-image: url(../img/peppermint-product.png);
+}
+
+.body__item__tea.raspberry {
+  background-image: url(../img/raspberry-product.png);
+}
+
+.body__item__tea.peach {
+  background-image: url(../img/peach-product.png);
 }
 
 .body__item__arrow--left {
   width: 2%;
   height: 2%;
-  bottom: 220px;
-  left: 30px;
+  bottom: 56%;
+  left: 9%;
   background-image: url(../img/arrow-left.png);
   position: absolute;
   background-position: center;
@@ -236,17 +363,17 @@ body {
   background-size: contain;
   -webkit-transform: scale(0);
           transform: scale(0);
-  -webkit-animation: showButtons 0.2s linear forwards;
-          animation: showButtons 0.2s linear forwards;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation: showItem .5s linear forwards;
+          animation: showItem .5s linear forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
 }
 
 .body__item__arrow--right {
   width: 2%;
   height: 2%;
-  bottom: 220px;
-  right: 30px;
+  bottom: 56%;
+  right: 9%;
   background-image: url(../img/arrow-right.png);
   background-size: contain;
   position: absolute;
@@ -255,117 +382,363 @@ body {
   background-size: contain;
   -webkit-transform: scale(0);
           transform: scale(0);
-  -webkit-animation: showButtons 0.2s linear forwards;
-          animation: showButtons 0.2s linear forwards;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  -webkit-animation: showItem .5s linear forwards;
+          animation: showItem .5s linear forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
 }
 
 .body__item__strawberry-1 {
+  visibility: hidden;
   width: 2.7%;
   height: 2.7%;
-  top: 85px;
-  left: -3px;
+  top: 18%;
+  left: -1%;
   background-image: url(../img/pepermint-elements/strawberry-1.png);
+}
+
+.body__item__strawberry-1.in {
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
   -webkit-transform: scale(15);
           transform: scale(15);
 }
 
 .body__item__strawberry-2 {
+  visibility: hidden;
   width: 2.7%;
   height: 2.7%;
-  top: 105px;
+  top: 23%;
   left: 79%;
   background-image: url(../img/pepermint-elements/strawberry-2.png);
+}
+
+.body__item__strawberry-2.in {
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
   -webkit-transform: scale(15);
           transform: scale(15);
 }
 
 .body__item__pepermint-1 {
+  visibility: hidden;
   width: 3%;
   height: 3%;
-  top: 244px;
+  top: 58%;
   left: 26%;
   background-image: url(../img/pepermint-elements/pepermint-1.png);
+}
+
+.body__item__pepermint-1.in {
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
   -webkit-transform: scale(18);
           transform: scale(18);
 }
 
 .body__item__pepermint-2 {
+  visibility: hidden;
   width: 3%;
   height: 3%;
   bottom: 10px;
   right: 25px;
   background-image: url(../img/pepermint-elements/pepermint-2.png);
+}
+
+.body__item__pepermint-2.in {
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
   -webkit-transform: scale(13);
           transform: scale(13);
 }
 
 .body__item__seed-1 {
+  visibility: hidden;
   width: 3%;
   height: 3%;
-  bottom: 95px;
-  right: 45px;
+  bottom: 24%;
+  right: 12%;
   background-image: url(../img/pepermint-elements/seed-1.png);
+}
+
+.body__item__seed-1.in {
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
   -webkit-transform: scale(3);
           transform: scale(3);
 }
 
 .body__item__seed-2 {
+  visibility: hidden;
   width: 3%;
   height: 3%;
-  bottom: 217px;
+  bottom: 56%;
   right: -10px;
   background-image: url(../img/pepermint-elements/seed-2.png);
+}
+
+.body__item__seed-2.in {
   position: absolute;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  -webkit-transition: -webkit-transform 0.2s linear;
-  transition: -webkit-transform 0.2s linear;
-  transition: transform 0.2s linear;
-  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
   -webkit-transform: scale(3);
           transform: scale(3);
+}
+
+.body__item__button {
+  width: 32.5%;
+  height: 10%;
+  background-image: url(../img/CTA.png);
+  background-size: contain;
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  bottom: 7%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: 0;
+  -webkit-animation: showElement .5s linear forwards;
+          animation: showElement .5s linear forwards;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+.body__item__lemon {
+  width: 3%;
+  height: 3%;
+  bottom: 28%;
+  left: 20%;
+  background-image: url(../img/raspberry-elements/Lemon.png);
+  visibility: hidden;
+}
+
+.body__item__lemon.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(18);
+          transform: scale(18);
+}
+
+.body__item__raspberry-1 {
+  width: 3%;
+  height: 3%;
+  top: 12%;
+  left: 5%;
+  background-image: url(../img/raspberry-elements/Raspberry1.png);
+  visibility: hidden;
+}
+
+.body__item__raspberry-1.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(13);
+          transform: scale(13);
+}
+
+.body__item__raspberry-2 {
+  width: 3%;
+  height: 3%;
+  top: 20%;
+  right: 33%;
+  background-image: url(../img/raspberry-elements/Raspberry2.png);
+  visibility: hidden;
+}
+
+.body__item__raspberry-2.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(13);
+          transform: scale(13);
+}
+
+.body__item__raspberry-3 {
+  width: 3%;
+  height: 3%;
+  top: 35%;
+  right: 21%;
+  background-image: url(../img/raspberry-elements/Raspberry3.png);
+  visibility: hidden;
+}
+
+.body__item__raspberry-3.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(13);
+          transform: scale(13);
+}
+
+.body__item__petal-2 {
+  width: 3%;
+  height: 3%;
+  top: 18%;
+  left: 22%;
+  background-image: url(../img/raspberry-elements/petal-2.png);
+  visibility: hidden;
+}
+
+.body__item__petal-2.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(8);
+          transform: scale(8);
+}
+
+.body__item__petal-3 {
+  width: 3%;
+  height: 3%;
+  top: 39%;
+  left: -2%;
+  background-image: url(../img/raspberry-elements/petal-3.png);
+  visibility: hidden;
+}
+
+.body__item__petal-3.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(8);
+          transform: scale(8);
+}
+
+.body__item__petal-4 {
+  width: 3%;
+  height: 3%;
+  top: 50%;
+  right: 19%;
+  background-image: url(../img/raspberry-elements/petal-4.png);
+  visibility: hidden;
+}
+
+.body__item__petal-4.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(8);
+          transform: scale(8);
+}
+
+.body__item__petal-5 {
+  width: 3%;
+  height: 3%;
+  top: 10%;
+  right: 3%;
+  background-image: url(../img/raspberry-elements/petal-5.png);
+  visibility: hidden;
+}
+
+.body__item__petal-5.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(10);
+          transform: scale(10);
+}
+
+.body__item__peach {
+  width: 3%;
+  height: 3%;
+  top: 17%;
+  right: 25%;
+  background-image: url(../img/peach-elements/peach.png);
+}
+
+.body__item__peach.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(14);
+          transform: scale(14);
+}
+
+.body__item__orange {
+  width: 3%;
+  height: 3%;
+  bottom: 34%;
+  left: 19%;
+  background-image: url(../img/peach-elements/orange.png);
+}
+
+.body__item__orange.in {
+  position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  -webkit-transition: 0.5s linear transform;
+  transition: 0.5s linear transform;
+  visibility: visible;
+  -webkit-transform: scale(16);
+          transform: scale(16);
 }
 /*# sourceMappingURL=style.css.map */
