@@ -177,6 +177,20 @@ body {
   height: 100vh;
 }
 
+.wrapper.landscape {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../img/not_available.png);
+}
+
+.wrapper.before-loaded {
+  background-image: url(../img/_loading.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .app {
   width: 100%;
   height: 100%;
@@ -186,6 +200,12 @@ body {
   background-size: cover;
   position: relative;
   overflow: hidden;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+.app.none {
+  opacity: 0;
 }
 
 .header {
@@ -302,7 +322,7 @@ body {
 .body__item__teas {
   position: absolute;
   width: 100%;
-  height: 60%;
+  height: 100%;
   top: 12%;
   left: 0;
   -webkit-transform: translateX(100%);
@@ -328,15 +348,14 @@ body {
 }
 
 .body__item__tea {
-  min-width: 70%;
+  position: relative;
+  top: 0;
+  min-width: 100%;
   width: 100%;
-  margin-right: 30%;
   min-height: 100%;
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  -webkit-transform: translateX(23%);
-          transform: translateX(23%);
+  background-size: 65%;
+  background-position: top center;
 }
 
 .body__item__tea.strawberry {
@@ -355,7 +374,7 @@ body {
   width: 2%;
   height: 2%;
   bottom: 56%;
-  left: 9%;
+  left: 5%;
   background-image: url(../img/arrow-left.png);
   position: absolute;
   background-position: center;
@@ -413,8 +432,8 @@ body {
   visibility: hidden;
   width: 2.7%;
   height: 2.7%;
-  top: 23%;
-  left: 79%;
+  top: 25%;
+  left: 77%;
   background-image: url(../img/pepermint-elements/strawberry-2.png);
 }
 
@@ -434,8 +453,8 @@ body {
   visibility: hidden;
   width: 3%;
   height: 3%;
-  top: 58%;
-  left: 26%;
+  top: 62%;
+  left: 23%;
   background-image: url(../img/pepermint-elements/pepermint-1.png);
 }
 
@@ -537,8 +556,8 @@ body {
 .body__item__lemon {
   width: 3%;
   height: 3%;
-  bottom: 28%;
-  left: 20%;
+  bottom: 26%;
+  left: 18%;
   background-image: url(../img/raspberry-elements/Lemon.png);
   visibility: hidden;
 }
@@ -622,7 +641,7 @@ body {
   width: 3%;
   height: 3%;
   top: 18%;
-  left: 22%;
+  left: 19%;
   background-image: url(../img/raspberry-elements/petal-2.png);
   visibility: hidden;
 }
@@ -663,8 +682,8 @@ body {
 .body__item__petal-4 {
   width: 3%;
   height: 3%;
-  top: 50%;
-  right: 19%;
+  top: 53%;
+  right: 18%;
   background-image: url(../img/raspberry-elements/petal-4.png);
   visibility: hidden;
 }
@@ -705,7 +724,7 @@ body {
 .body__item__peach {
   width: 3%;
   height: 3%;
-  top: 17%;
+  top: 18%;
   right: 25%;
   background-image: url(../img/peach-elements/peach.png);
 }
@@ -725,8 +744,8 @@ body {
 .body__item__orange {
   width: 3%;
   height: 3%;
-  bottom: 34%;
-  left: 19%;
+  bottom: 33%;
+  left: 17%;
   background-image: url(../img/peach-elements/orange.png);
 }
 
